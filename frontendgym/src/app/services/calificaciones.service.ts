@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'; // 👈 ajusta la ruta si es necesario
 
 @Injectable({ providedIn: 'root' })
 export class CalificacionesService {
-  private base = '/api/calificaciones';
+
+  // Antes:
+  // private base = '/api/calificaciones';
+  private base = `${environment.apiBaseUrl}/api/calificaciones`;
 
   constructor(private http: HttpClient) {}
 
