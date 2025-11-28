@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SuscripcionesService {
-  private base = '/api/suscripciones';
+
+  private base = `${environment.apiBaseUrl}/api/suscripciones`;
+
   constructor(private http: HttpClient) {}
 
   crear(body: {
