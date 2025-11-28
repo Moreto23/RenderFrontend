@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { toHttpParams } from './http.util';
+import { environment } from '../../environments/environment'; // 👈 ajusta la ruta según tu proyecto
 
 @Injectable({ providedIn: 'root' })
 export class AdminEstadisticasService {
-  private base = '/api/admin/estadisticas';
+
+  // Antes: private base = '/api/admin/estadisticas';
+  private base = `${environment.apiBaseUrl}/api/admin/estadisticas`;
+
   constructor(private http: HttpClient) {}
 
   overview(p: { from: string; to: string; }) {
